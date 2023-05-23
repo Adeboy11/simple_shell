@@ -9,7 +9,7 @@ char *stream_reader(void)
 {
 	int buffsize = 1024;
 	int i = 0;
-	char *fisrtline = malloc(sizeof(char) * buffsize);
+	char *firstline = malloc(sizeof(char) * buffsize);
 	int chars;
 
 	if (firstline == NULL)
@@ -32,13 +32,13 @@ char *stream_reader(void)
 		}
 		else
 		{
-			firstline[i] = character;
+			firstline[i] = chars;
 		}
 		i++;
-		if (i >= bufsize)
+		if (i >= buffsize)
 		{
-			bufsize += bufsize;
-			firstline = realloc(firstline, bufsize);
+			buffsize += buffsize;
+			firstline = realloc(firstline, buffsize);
 			if (firstline == NULL)
 			{
 				perror("reallocation error in stream reader");
